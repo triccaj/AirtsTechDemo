@@ -4,6 +4,7 @@
     using System.Threading;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using OpenQA.Selenium;
+    using OpenQA.Selenium.Support.UI;
 
     public class Selector
     {
@@ -18,6 +19,15 @@
             driver = browser;
             Locator = locator;
             element = driver.FindElement(By.CssSelector(locator));
+        }
+
+        /// <summary>
+        /// Waits for the chosen element to become visible to the user
+        /// </summary>
+        public void WaitForElementToBeVisible()
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(Locator)));
         }
 
         /// <summary>

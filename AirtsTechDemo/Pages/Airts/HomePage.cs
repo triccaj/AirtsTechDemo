@@ -7,9 +7,13 @@
     {
         private IWebDriver driver;
 
+        public Values ValuesPage;
+
         public HomePage(IWebDriver browser)
         {
             driver = browser;
+
+            ValuesPage = new Values(driver);
         }
 
         public Selector AboutLink => new Selector(driver, "#menu-item-35 > a");

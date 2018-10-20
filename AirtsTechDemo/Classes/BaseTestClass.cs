@@ -10,7 +10,7 @@
     [TestClass]
     public class BaseTestClass
     {
-        public IWebDriver driver;
+        private IWebDriver driver;
         private ChromeOptions Options;
         public Actions actions;
 
